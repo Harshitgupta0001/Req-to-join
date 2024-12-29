@@ -32,7 +32,7 @@ FORCE_PIC = os.environ.get("FORCE_PIC", "https://ibb.co/2tr6wx6")
 FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "600")) # auto delete in seconds
 
 
-PORT = os.environ.get("PORT", "8020")
+PORT = os.environ.get("PORT", "8040")
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 
