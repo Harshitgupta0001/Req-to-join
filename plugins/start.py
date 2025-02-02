@@ -29,12 +29,12 @@ async def start_command(client: Client, message: Message):
         if client.link_one is not None and message.from_user.id not in ADMINS and not await is_requested_one(message):
             buttons.append([
                 InlineKeyboardButton(
-                    " Rᴇǫᴜᴇꜱᴛ Tᴏ Jᴏɪɴ Cʜᴀɴɴᴇʟ 1", url=client.link_one)
+                    "Jᴏɪɴ Cʜᴀɴɴᴇʟ 1", url=client.link_one)
             ])
         if client.link_two is not None and message.from_user.id not in ADMINS and not await is_requested_two(message):
             buttons.append([
                 InlineKeyboardButton(
-                    " Rᴇǫᴜᴇꜱᴛ Tᴏ Jᴏɪɴ Cʜᴀɴɴᴇʟ 2", url=client.link_two)
+                    "Jᴏɪɴ Cʜᴀɴɴᴇʟ 2", url=client.link_two)
             ])   
             try:
                 buttons.append(
@@ -135,7 +135,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-            InlineKeyboardButton('⚡ 𝙹𝚘𝚒𝚗 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 ⚡', url=f'https://t.me/Tamil_Anime_Files')
+            InlineKeyboardButton('⚡ 𝙹𝚘𝚒𝚗 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 ⚡', url=f'https://t.me/Movies_Eera')
         ],
         [
             InlineKeyboardButton('⛩ 𝙰𝚋𝚘𝚞𝚝', 'about'),
@@ -143,8 +143,8 @@ async def start_command(client: Client, message: Message):
         ]
             ]
         )
-        await message.reply_text(
-            text = START_MSG.format(
+        await message.reply_photo(photo=https://i.ibb.co/7Lwm9CG/photo-2025-02-02-07-36-38-7466722484281147420.jpg,
+            caption = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
