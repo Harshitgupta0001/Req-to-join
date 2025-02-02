@@ -12,7 +12,7 @@ API_HASH = os.environ.get("API_HASH", "77717127ece56fac64ebea6250db8bb7")
 
 OWNER_ID = int(os.environ.get("OWNER_ID", "6359874284"))
 DB_URL = os.environ.get("DB_URL", "mongodb+srv://Venkat3823:Venkat3823@cluster0.ig0oc9y.mongodb.net/?retryWrites=true&w=majority")
-DB_NAME = os.environ.get("DB_NAME", "Naruto_TAF")
+DB_NAME = os.environ.get("DB_NAME", "hgbot")
 
 
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002155023199"))
