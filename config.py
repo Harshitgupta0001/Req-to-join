@@ -15,7 +15,7 @@ DB_URL = os.environ.get("DB_URL", "mongodb+srv://Venkat3823:Venkat3823@cluster0.
 DB_NAME = os.environ.get("DB_NAME", "Naruto_TAF")
 
 
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002093054178"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002155023199"))
 
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 
