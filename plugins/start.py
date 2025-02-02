@@ -122,7 +122,7 @@ async def start_command(client: Client, message: Message):
 
         # Schedule the file deletion
         asyncio.create_task(delete_files(madflix_msgs, client, k))
-        
+        await asyncio.sleep(madflixofficials)
         for madflix_msg in madflix_msgs: 
             try:
                 await madflix_msg.delete()
