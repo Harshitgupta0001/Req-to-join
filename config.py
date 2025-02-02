@@ -17,7 +17,7 @@ DB_NAME = os.environ.get("DB_NAME", "Naruto_TAF")
 
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002155023199"))
 
-FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
+FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002237286662"))
 
 REQUEST_CHANNEL_1 = int(os.environ.get("REQUEST_CHANNEL_1", "-1002333230282"))
 
