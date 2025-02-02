@@ -143,7 +143,7 @@ async def start_command(client: Client, message: Message):
         ]
             ]
         )
-        await message.reply_photo(photo=https://i.ibb.co/7Lwm9CG/photo-2025-02-02-07-36-38-7466722484281147420.jpg,
+        await message.reply_photo(photo='https://i.ibb.co/7Lwm9CG/photo-2025-02-02-07-36-38-7466722484281147420.jpg',
             caption = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
