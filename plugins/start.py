@@ -137,6 +137,9 @@ async def start_command(client: Client, message: Message):
                 [
             InlineKeyboardButton('⚡ 𝙹𝚘𝚒𝚗 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 ⚡', url=f'https://t.me/Movies_Eera')
         ],
+               [
+            InlineKeyboardButton('‼️ 𝙳𝙸𝚂𝙲𝙻𝙰𝙸𝙼𝙴𝚁 ‼️', url=f'https://graph.org/vTelegraphBot-08-03-7')
+        ], 
         [
             InlineKeyboardButton('⛩ 𝙰𝚋𝚘𝚞𝚝', 'about'),
             InlineKeyboardButton('🔐 𝙲𝚕𝚘𝚜𝚎', 'close')
