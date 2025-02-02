@@ -5,12 +5,12 @@ from logging.handlers import RotatingFileHandler
 
 
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "7427035170:AAF7cOQicjzC7uUmbVpxz6YXT3Mxr0hlRKI")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7528651819:AAFZb1Ihy5tBPUNcSm3p5MjNM-VKHS9y5Xs")
 API_ID = int(os.environ.get("API_ID", "25797857"))
 API_HASH = os.environ.get("API_HASH", "77717127ece56fac64ebea6250db8bb7")
 
 
-OWNER_ID = int(os.environ.get("OWNER_ID", "6693549185"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "6359874284"))
 DB_URL = os.environ.get("DB_URL", "mongodb+srv://Venkat3823:Venkat3823@cluster0.ig0oc9y.mongodb.net/?retryWrites=true&w=majority")
 DB_NAME = os.environ.get("DB_NAME", "Naruto_TAF")
 
@@ -19,10 +19,10 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002093054178"))
 
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 
-REQUEST_CHANNEL_1 = int(os.environ.get("REQUEST_CHANNEL_1", "-1002006370598"))
+REQUEST_CHANNEL_1 = int(os.environ.get("REQUEST_CHANNEL_1", "-1002333230282"))
 
 
-REQUEST_CHANNEL_2 = int(os.environ.get("REQUEST_CHANNEL_2", "-1002448901304"))
+REQUEST_CHANNEL_2 = int(os.environ.get("REQUEST_CHANNEL_2", ""))
 
 
 
@@ -39,7 +39,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 try:
     ADMINS=[6299192020]
-    for x in (os.environ.get("ADMINS", "6299192020").split()):
+    for x in (os.environ.get("ADMINS", "6359874284").split()):
         ADMINS.append(int(x))
 except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
