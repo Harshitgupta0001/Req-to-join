@@ -18,7 +18,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
 ├➽ Lᴀɴɢᴜᴀɢᴇ : <a href=https://www.python.org>Pʏᴛʜᴏɴ 3</a>
 ├➽ Sᴏᴜʀᴄᴇ Cᴏᴅᴇ : <a href=https://t.me/HgBotz>HgBotz</a>
 ├➽ Mᴀɪɴ Cʜᴀɴɴᴇʟ : <a href=https://t.me/Movies_Eera>Movies_Eera</a>
-├➽ Mᴀɪɴ Gʀᴏᴜᴘ : <a href=https://t.me/moviesworldsupportzone></a></b>
+├➽ Mᴀɪɴ Gʀᴏᴜᴘ : <a href=https://t.me/moviesworldsupportzone>search zone</a></b>
 ╰───────────────⍟ """,
             disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
