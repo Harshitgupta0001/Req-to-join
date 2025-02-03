@@ -135,7 +135,8 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-            InlineKeyboardButton('⚡ 𝙹𝚘𝚒𝚗 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 ⚡', url=f'https://t.me/Movies_Eera')
+            InlineKeyboardButton('Movies_Eera🦋', url=f'https://t.me/Movies_Eera'),
+            InlineKeyboardButton('search zone', url=f'https://t.me/moviesworldsupportzone')
         ],
                [
             InlineKeyboardButton('‼️ 𝙳𝙸𝚂𝙲𝙻𝙰𝙸𝙼𝙴𝚁 ‼️', url=f'https://graph.org/vTelegraphBot-08-03-7')
@@ -146,8 +147,8 @@ async def start_command(client: Client, message: Message):
         ]
             ]
         )
-        await message.reply_photo(photo='https://i.ibb.co/7Lwm9CG/photo-2025-02-02-07-36-38-7466722484281147420.jpg',
-            caption = START_MSG.format(
+        await message.reply_text(
+            text = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
@@ -155,7 +156,7 @@ async def start_command(client: Client, message: Message):
                 id = message.from_user.id
             ),
             reply_markup = reply_markup,
-            #disable_web_page_preview = True,
+            disable_web_page_preview = True,
             quote = True
         )
         return
