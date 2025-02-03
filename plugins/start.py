@@ -29,27 +29,27 @@ async def start_command(client: Client, message: Message):
         if client.link_one is not None and message.from_user.id not in ADMINS and not await is_requested_one(message):
             buttons.append([
                 InlineKeyboardButton(
-                    "Jᴏɪɴ Cʜᴀɴɴᴇʟ 1", url=client.link_one)
+                    "Movies_Eera 🦋", url=client.link_one)
             ])
         if client.link_two is not None and message.from_user.id not in ADMINS and not await is_requested_two(message):
             buttons.append([
                 InlineKeyboardButton(
-                    "Jᴏɪɴ Cʜᴀɴɴᴇʟ 2", url=client.link_two)
+                   "Cʜᴀɴɴᴇʟ 2", url=client.link_two)
             ])   
             try:
                 buttons.append(
                       [
                         InlineKeyboardButton(
-                             text = 'Try Again',
+                             text = '♻️ Try Again ♻️',
                              url = f"https://t.me/{client.username}?start={message.command[1]}"
                         )
                     ]
                     )
             except (IndexError, ValueError):
                 pass
-            await client.send_message(
+            await client.send_photo(photo="https://i.ibb.co/xKG9rztd/photo-2024-06-08-13-21-33-7467108885308899332.jpg", 
                 chat_id=message.from_user.id,
-                text="**Please request Join the Following Channels to use this Bot!**",
+                caption="**Please  Join the Following Channels to use this Bot!**",
                 reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons),
                 parse_mode=ParseMode.MARKDOWN
             )
