@@ -17,8 +17,6 @@ DB_NAME = os.environ.get("DB_NAME", "Movieseerabot")
 
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002370247427"))
 
-LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002155023199"))
-
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002237286662"))
 
 REQUEST_CHANNEL_1 = int(os.environ.get("REQUEST_CHANNEL_1", "-1002237286662"))
