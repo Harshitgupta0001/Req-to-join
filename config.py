@@ -66,7 +66,7 @@ BOT_STATS_TEXT = "<b>BOT UPTIME :</b>\n{uptime}"
 
 
 
-USER_REPLY_TEXT = "❌Don't Send Me Messages Directly I'm Only File Share Bot !"
+USER_REPLY_TEXT = "<b>Please search your movie in <a href=https://t.me/moviesworldsupportzone>MoviesEera_Search_zone</a></b>"
 
 START_MSG = os.environ.get("START_MESSAGE", "Hᴇʟʟᴏ {mention}\n\n<b>I Aᴍ Movie Bᴏᴛ I Wɪʟʟ Gɪᴠᴇ Yᴏᴜ Movie/series Fɪʟᴇs Fʀᴏᴍ <a href=https://t.me/Movies_Eera>Movies_Eera</a></b>.")
 
