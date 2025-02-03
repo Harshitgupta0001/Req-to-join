@@ -146,17 +146,6 @@ async def start_command(client: Client, message: Message):
         ]
             ]
         )
-        user_id = message.from_user.id
-        first_name = message.from_user.first_name
-    
-    # Check if the user is new
-    if not await present_user(user_id):
-        await add_user(user_id)  # Add new user to database
-        
-        LOG_TEXT = f"""<b>#NewUser\n\nID - <code>{user_id}</code>\nNᴀᴍᴇ - {first_name}</b>"""
-        # Send log message to log channel
-        await bot.send_message(LOG_CHANNEL, LOG_TEXT)
-    
         await message.reply_photo(photo='https://i.ibb.co/7Lwm9CG/photo-2025-02-02-07-36-38-7466722484281147420.jpg',
             caption = START_MSG.format(
                 first = message.from_user.first_name,
