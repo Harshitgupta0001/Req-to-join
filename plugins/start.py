@@ -130,7 +130,7 @@ async def start_command(client: Client, message: Message):
    #         except:    
   #              pass 
 
-      return
+        return
     else:
         reply_markup = InlineKeyboardMarkup(
             [
