@@ -121,16 +121,16 @@ async def start_command(client: Client, message: Message):
         k = await client.send_message(chat_id = message.from_user.id, text=f"<b>❗️ <u>𝗜𝗠𝗣𝗢𝗥𝗧𝗔𝗡𝗧</u> ❗️</b>\n\n<b>Tʜɪs Fɪʟᴇ Wɪʟʟ Bᴇ Dᴇʟᴇᴛᴇᴅ Iɴ {file_auto_delete} (Dᴜᴇ Tᴏ Cᴏᴘʏʀɪɢʜᴛ Issᴜᴇs)</b>.\n\n<b>📌 Pʟᴇᴀsᴇ Fᴏʀᴡᴀʀᴅ Tʜɪs Fɪʟᴇ Tᴏ Sᴏᴍᴇᴡʜᴇʀᴇ Eʟsᴇ Aɴᴅ Sᴛᴀʀᴛ Dᴏᴡɴʟᴏᴀᴅɪɴɢ Tʜᴇʀᴇ.</b>")
 
         # Schedule the file deletion
-     #   asyncio.create_task(delete_files(madflix_msgs, client, k))
- #       await asyncio.sleep(madflixofficials)
-#        for madflix_msg in madflix_msgs: 
-#            try:
+        asyncio.create_task(delete_files(madflix_msgs, client, k))
+        #await asyncio.sleep(madflixofficials)
+       # for madflix_msg in madflix_msgs: 
+   #         try:
 #                await madflix_msg.delete()
 #                await k.edit_text("Your Video / File Is Successfully Deleted ✅") 
- #           except:    
- #               pass 
+   #         except:    
+  #              pass 
 
-  #      return
+      return
     else:
         reply_markup = InlineKeyboardMarkup(
             [
