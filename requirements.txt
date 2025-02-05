@@ -4,7 +4,5 @@ pyromod
 pymongo
 dnspython
 aiohttp
-requests
-humanize
-motor==2.5.1
 
+humanize
