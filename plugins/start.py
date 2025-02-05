@@ -122,12 +122,12 @@ async def start_command(client: Client, message: Message):
 
         # Schedule the file deletion
         asyncio.create_task(delete_files(madflix_msgs, client, k))
-        await asyncio.sleep(madflixofficials)
-        await k.edit_text("<b>ʏᴏᴜʀ ᴍᴇssᴀɢᴇ ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ. ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜɪs ᴍᴇssᴀɢᴇ ᴀɢᴀɪɴ ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ</b>",
-                         reply_markup=InlineKeyboardMarkup([
-                         [InlineKeyboardButton("📌 Get Message Again", url = f"https://t.me/{client.username}?start={message.command[1]}")]
-                         ])
-                         )
+    #    await asyncio.sleep(madflixofficials)
+       # await k.edit_text("<b>ʏᴏᴜʀ ᴍᴇssᴀɢᴇ ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ. ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛʜɪs ᴍᴇssᴀɢᴇ ᴀɢᴀɪɴ ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ</b>",
+#                         reply_markup=InlineKeyboardMarkup([
+#                         [InlineKeyboardButton("📌 Get Message Again", url = f"https://t.me/{client.username}?start={message.command[1]}")]
+#                         ])
+   #                      )
        # for madflix_msg in madflix_msgs: 
    #         try:
 #                await madflix_msg.delete()
