@@ -195,7 +195,7 @@ async def not_joined(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command('api') & filters.private)
+@Bot.on_message(filters.command('api') & filters.private)
 async def shortener_api_handler(client, m: Message):
     user_id = m.from_user.id
     user = await get_user(user_id)
@@ -212,7 +212,7 @@ async def shortener_api_handler(client, m: Message):
 
 
 
-@Client.on_message(filters.command("base_site") & filters.private)
+@Bot.on_message(filters.command("base_site") & filters.private)
 async def base_site_handler(client, m: Message):
     user_id = m.from_user.id
     user = await get_user(user_id)
