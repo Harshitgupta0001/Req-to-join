@@ -29,7 +29,7 @@ REQUEST_CHANNEL_2 = int(os.environ.get("REQUEST_CHANNEL_2", "-1002496822688"))
 START_PIC = os.environ.get("START_PIC", "https://i.ibb.co/7Lwm9CG/photo-2025-02-02-07-36-38-7466722484281147420.jpg")
 FORCE_PIC = os.environ.get("FORCE_PIC", "https://ibb.co/2tr6wx6")
 
-FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "600")) # auto delete in seconds
+FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "300")) # auto delete in seconds
 
 
 PORT = os.environ.get("PORT", "8040")
