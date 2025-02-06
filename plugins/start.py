@@ -4,9 +4,10 @@ from pyrogram.enums import ParseMode
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, FILE_AUTO_DELETE
+from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, FILE_AUTO_DELETE, SHORTENER_API_MESSAGE
 from helper_func import subscribed, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user, is_requested_one, is_requested_two, delete_all_one, delete_all_two
+from plugins.users_api import get_user, update_user_info
 
 madflixofficials = FILE_AUTO_DELETE
 jishudeveloper = madflixofficials
@@ -192,6 +193,46 @@ async def not_joined(client: Client, message: Message):
             parse_mode=ParseMode.MARKDOWN
         )
         return
+
+
+@Client.on_message(filters.command('api') & filters.private)
+async def shortener_api_handler(client, m: Message):
+    user_id = m.from_user.id
+    user = await get_user(user_id)
+    cmd = m.command
+
+    if len(cmd) == 1:
+        s = config.SHORTENER_API_MESSAGE.format(base_site=user["base_site"], shortener_api=user["shortener_api"])
+        return await m.reply(s)
+
+    elif len(cmd) == 2:    
+        api = cmd[1].strip()
+        await update_user_info(user_id, {"shortener_api": api})
+        await m.reply("<b>Shortener API updated successfully to</b> " + api)
+
+# Don't Remove Credit Tg - @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
+# Ask Doubt on telegram @KingVJ01
+
+@Client.on_message(filters.command("base_site") & filters.private)
+async def base_site_handler(client, m: Message):
+    user_id = m.from_user.id
+    user = await get_user(user_id)
+    cmd = m.command
+    text = f"`/base_site (base_site)`\n\n<b>Current base site: None\n\n EX:</b> `/base_site shortnerdomain.com`\n\nIf You Want To Remove Base Site Then Copy This And Send To Bot - `/base_site None`"
+    if len(cmd) == 1:
+        return await m.reply(text=text, disable_web_page_preview=True)
+    elif len(cmd) == 2:
+        base_site = cmd[1].strip()
+        if base_site == None:
+            await update_user_info(user_id, {"base_site": base_site})
+            return await m.reply("<b>Base Site updated successfully</b>")
+            
+        if not domain(base_site):
+            return await m.reply(text=text, disable_web_page_preview=True)
+        await update_user_info(user_id, {"base_site": base_site})
+        await m.reply("<b>Base Site updated successfully</b>")
+
 
 
 
