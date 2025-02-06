@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import filters, Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait
-
+from plugins.users_api import get_user, update_user_info
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
 from helper_func import encode
@@ -23,6 +23,8 @@ async def channel_post(client: Client, message: Message):
     converted_id = post_message.id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
+    user_id = message.from_user.id
+    user = await get_user(user_id)
     link = f"https://t.me/{client.username}?start={base64_string}"
     # Extract file name if available
     file_name = "Unknown File"
@@ -45,8 +47,13 @@ async def channel_post(client: Client, message: Message):
 
     chnl_reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 GET YOUR FILE", url=f'{link}')]]) 
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 Get Your Files", url=f'{short_link}')]])
+    
 
     await reply_text.edit(f"<b>{file_name}</b>\n<b>{file_size} MB</b>", reply_markup=reply_markup, disable_web_page_preview = True)
+    short_link = await get_short_link(user, link)
+    await message.reply(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ sʜᴏʀᴛ ʟɪɴᴋ:</pre></b>\n<b>{file_name}</b>", reply_markup=short_reply_markup)
+
     #await message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote = True) 
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit_reply_markup(chnl_reply_markup)
