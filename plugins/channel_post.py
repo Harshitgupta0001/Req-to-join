@@ -26,6 +26,7 @@ async def channel_post(client: Client, message: Message):
     user_id = message.from_user.id
     user = await get_user(user_id)
     link = f"https://t.me/{client.username}?start={base64_string}"
+    short_link = await get_short_link(user, link)
     # Extract file name if available
     file_name = "Unknown File"
     file_size = "Unknown Size"
@@ -47,11 +48,10 @@ async def channel_post(client: Client, message: Message):
 
     chnl_reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 GET YOUR FILE", url=f'{link}')]]) 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 Get Your Files", url=f'{short_link}')]])
+    short_reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 Get Your Short Files", url=f'{short_link}')]])
     
 
     await reply_text.edit(f"<b>{file_name}</b>\n<b>{file_size} MB</b>", reply_markup=reply_markup, disable_web_page_preview = True)
-    short_link = await get_short_link(user, link)
     await message.reply(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ sʜᴏʀᴛ ʟɪɴᴋ:</pre></b>\n<b>{file_name}</b>", reply_markup=short_reply_markup)
 
     #await message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote = True) 
