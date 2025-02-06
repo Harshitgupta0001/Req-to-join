@@ -39,10 +39,11 @@ async def batch(client: Client, message: Message):
     link = f"https://t.me/{client.username}?start={base64_string}"
     user_id = message.from_user.id
     user = await get_user(user_id)
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
-    await second_message.reply_text(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\n\n<blockquote>🖇️ ʟɪɴᴋ :- {link}</blockquote></b>", quote=True, reply_markup=reply_markup) 
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 Get Your Files", url=f'{link}')]])
+    short_reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 Get Your Files", url=f'{short_link}')]])
+    await second_message.reply_text(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre></b>", quote=True, reply_markup=reply_markup) 
     short_link = await get_short_link(user, link)
-    await message.reply(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\n\n<blockquote>🖇️ sʜᴏʀᴛ ʟɪɴᴋ :- {short_link}</blockquote></b>")
+    await second_message.reply_text(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ Short ʟɪɴᴋ:</pre></b>", quote=True, reply_markup=short_reply_markup)
 
 
 
