@@ -1,6 +1,6 @@
 pyrofork
 TgCrypto
-pyromod
+kurigram
 pymongo
 dnspython
 aiohttp
