@@ -26,7 +26,6 @@ async def channel_post(client: Client, message: Message):
     link = f"https://t.me/{client.username}?start={base64_string}"
     # Extract file name if available
     file_name = "Unknown File"
-    formatted_name = ""
     if message.document:
         file_name = message.document.file_name
     elif message.video:
@@ -34,21 +33,14 @@ async def channel_post(client: Client, message: Message):
     elif message.audio:
         file_name = message.audio.file_name if message.audio.file_name else "Audio File"
 
-    # Processing file name if available
     if file_name != "Unknown File":
-        file_name = file_name.rsplit('.', 1)[0]  # Remove file extension
-        parts = re.split(r'[.\-_]', file_name)  # Split by ., -, and _
-        
-        title = parts[0] if parts else ""
-        year = next((p for p in parts if p.isdigit() and len(p) == 4), "")
-        resolution = next((p for p in parts if "p" in p.lower()), "")
-        language = next((p for p in parts if p.lower() in ["hindi", "english", "telugu", "tamil"]), "")
+    file_name = file_name.rsplit('.', 1)[0]  # Remove the last file extension (e.g., .mkv, .mp4)
+    file_name = file_name.replace('.', ' ')  # Replace dots with spaces
 
-        formatted_name = f"🎬 <b>{title} {year}</b>\n🎥 <b>{resolution}</b>\n🗣️ <b>{language}</b>\n"
-
+    
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
 
-    await reply_text.edit(f"<b>Here is your link</b>\n<b>{formatted_name}</b>\n\n{link}", reply_markup=reply_markup, disable_web_page_preview = True)
+    await reply_text.edit(f"<b>Here is your link</b>\n<b>{file_name}</b>\n\n{link}", reply_markup=reply_markup, disable_web_page_preview = True)
 
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit_reply_markup(reply_markup)
