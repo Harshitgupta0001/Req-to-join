@@ -26,12 +26,17 @@ async def channel_post(client: Client, message: Message):
     link = f"https://t.me/{client.username}?start={base64_string}"
     # Extract file name if available
     file_name = "Unknown File"
+    file_size = "Unknown Size"
+
     if message.document:
         file_name = message.document.file_name
+        file_size = round(message.document.file_size / (1024 * 1024), 2)  # Convert to MB
     elif message.video:
         file_name = message.video.file_name if message.video.file_name else "Video File"
+        file_size = round(message.video.file_size / (1024 * 1024), 2)
     elif message.audio:
         file_name = message.audio.file_name if message.audio.file_name else "Audio File"
+        file_size = round(message.audio.file_size / (1024 * 1024), 2)
 
     if file_name != "Unknown File":
         file_name = file_name.rsplit('.', 1)[0]  # Remove the last file extension (e.g., .mkv, .mp4)
@@ -41,7 +46,7 @@ async def channel_post(client: Client, message: Message):
     chnl_reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 GET YOUR FILE", url=f'{link}')]]) 
 
-    await reply_text.edit(f"<b>{file_name}</b>", reply_markup=reply_markup, disable_web_page_preview = True)
+    await reply_text.edit(f"<b>{file_name}</b>\n<b>{file_size}</b>", reply_markup=reply_markup, disable_web_page_preview = True)
     #await message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote = True) 
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit_reply_markup(chnl_reply_markup)
