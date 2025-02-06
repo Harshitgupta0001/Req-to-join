@@ -34,13 +34,13 @@ async def channel_post(client: Client, message: Message):
         file_name = message.audio.file_name if message.audio.file_name else "Audio File"
 
     if file_name != "Unknown File":
-    file_name = file_name.rsplit('.', 1)[0]  # Remove the last file extension (e.g., .mkv, .mp4)
-    file_name = file_name.replace('.', ' ')  # Replace dots with spaces
+        file_name = file_name.rsplit('.', 1)[0]  # Remove the last file extension (e.g., .mkv, .mp4)
+        file_name = file_name.replace('.', ' ')  # Replace dots with spaces
 
     
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 GET YOUR FILE", url=f'{link}')]])
 
-    await reply_text.edit(f"<b>Here is your link</b>\n<b>{file_name}</b>\n\n{link}", reply_markup=reply_markup, disable_web_page_preview = True)
+    await reply_text.edit(f"<b>{file_name}</b>", reply_markup=reply_markup, disable_web_page_preview = True)
 
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit_reply_markup(reply_markup)
