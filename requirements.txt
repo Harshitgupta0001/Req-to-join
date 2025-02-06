@@ -7,3 +7,4 @@ aiohttp
 requests 
 humanize
 motor
+validators
