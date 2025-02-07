@@ -45,6 +45,11 @@ async def channel_post(client: Client, message: Message):
         file_name = file_name.replace('.', ' ')  # Replace dots with spaces
         file_name = file_name.replace('_', ' ')  # Replace underscores with spaces
 
+
+    
+    # Extract only the first word for movie search
+    movie_name = file_name.split()[0] if file_name else "Unknown"
+    
     chnl_reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("📌 GET YOUR FILE", url=f'{link}')]])
     
@@ -57,7 +62,28 @@ async def channel_post(client: Client, message: Message):
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit_reply_markup(chnl_reply_markup)
 
+    # Fetch movie poster
+    poster_url = get_movie_poster(movie_name)  
+    if poster_url:
+        await message.reply_photo(
+            photo=poster_url,
+            caption=f"<b>🎬 {file_name}</b>\n<b>📦 Size:</b> {file_size} MB\n\n🔗 <b>Short Link:</b> {short_link}",
+            reply_markup=reply_markup
+        )
 
+# Function to fetch movie poster from OMDb API
+def get_movie_poster(movie_name):
+    OMDB_API_KEY = "48c3c3cd"  # Replace with your OMDb API key
+    search_url = f"http://www.omdbapi.com/?t={movie_name}&apikey={OMDB_API_KEY}"
+
+    try:
+        response = requests.get(search_url).json()
+        if response["Response"] == "True":
+            return response["Poster"]
+    except Exception as e:
+        print(f"Error fetching poster: {e}")
+
+    return None  # Return None if no poster is found
 
 
 
