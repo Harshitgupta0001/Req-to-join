@@ -77,19 +77,18 @@ async def new_post(client: Client, message: Message):
         print(e)
         pass
 
-CHANNEL = "-1002431588251" 
-@Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL))
-async def poost(client: Client, message: Message):
-    
-    edit_reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("𝐒𝐞𝐚𝐫𝐜𝐡 1 🌟", url='https://t.me/moviesworldsupportzone'),
-                                               InlineKeyboardButton("𝐒𝐞𝐚𝐫𝐜𝐡 𝟐 🦋", url= 'https://t.me/MoviesEera_Search')]]) 
-    await message.edit_reply_markup(edit_reply_markup)
+@Bot.on_message(filters.channel & filters.incoming & filters.chat(-1002431588251))
+async def poat(client: Client, message: Message):
+
+    if DISABLE_CHANNEL_BUTTON:
+        return
+        
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
+    try:
+        await message.edit_reply_markup(reply_markup)
+    except Exception as e:
+        print(e)
+        pass
 
 
 
-
-# Jishu Developer 
-# Don't Remove Credit 🥺
-# Telegram Channel @Madflix_Bots
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
