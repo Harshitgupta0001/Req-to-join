@@ -83,7 +83,8 @@ async def poat(client: Client, message: Message):
     if DISABLE_CHANNEL_BUTTON:
         return
         
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("𝐒𝐞𝐚𝐫𝐜𝐡 1 🌟", url='https://t.me/moviesworldsupportzone'),
+                                          InlineKeyboardButton("𝐒𝐞𝐚𝐫𝐜𝐡 𝟐 🦋", url= 'https://t.me/MoviesEera_Search')]]) 
     try:
         await message.edit_reply_markup(reply_markup)
     except Exception as e:
