@@ -51,7 +51,7 @@ async def start_command(client: Client, message: Message):
                 pass
             await client.send_photo(photo="https://i.ibb.co/xKG9rztd/photo-2024-06-08-13-21-33-7467108885308899332.jpg", 
                 chat_id=message.from_user.id,
-                caption="<b>Please  Join the Following Channels to use this Bot!\n After Joining Click Try Again Button And U got The Files</b>\n<b><a href = 'https://t.me/how_too_download_movie/10' >Tutorial ✨</a></b>",
+                caption="<b>Please  Join the Following Channels to use this Bot!\n After Joining Click Try Again Button And U got The Files</b>\n<a href = 'https://t.me/how_too_download_movie/10'>Tutorial ✨</a></b>",
                 reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons),
                 parse_mode=ParseMode.HTML
             )
