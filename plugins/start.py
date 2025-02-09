@@ -53,7 +53,7 @@ async def start_command(client: Client, message: Message):
                 chat_id=message.from_user.id,
                 caption="<b>Please  Join the Following Channels to use this Bot!\n After Joining Click Try Again Button And U got The Files</b>\n<b><a href = 'https://t.me/how_too_download_movie/10' >Tutorial ✨</a></b>",
                 reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons),
-                parse_mode=ParseMode.MARKDOWN
+                parse_mode=ParseMode.HTML
             )
             return
   
